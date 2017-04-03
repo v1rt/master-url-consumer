@@ -6,7 +6,6 @@ import Footer from './footer';
 import Header from './header';
 import logo from './logo.svg';
 import './App.scss';
-import './App.css';
 
 @observer
 class App extends Component {
