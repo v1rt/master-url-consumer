@@ -1,4 +1,4 @@
-import { observable, computed } from 'mobx';
+import { observable, computed, action } from 'mobx';
 import { ServerNames } from 'master-server-urls';
 
 class ServerNamesStores {
@@ -6,8 +6,11 @@ class ServerNamesStores {
   @observable ServerNameUrls = {};
 
   @computed get getServerUrls() {
-    console.log('')
     return this.ServerNameUrls;
+  }
+
+  @action updateUrl(server) {
+    this.ServerNameUrls.webServer = server.toString();
   }
 
   constructor() {

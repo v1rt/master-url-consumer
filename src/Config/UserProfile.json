@@ -1,0 +1,46 @@
+{
+  "results": [{
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Neil",
+      "last": "Camara",
+      "displayName": "wolverine"
+    },
+    "location": {
+      "street": "Hopkins",
+      "city": "Chicago",
+      "state": "Illinois",
+      "postcode": 60601
+    },
+    "email": "rcamara@example.com",
+    "login": {
+      "username": "wolverine",
+      "password": "password",
+      "salt": "UGtRFz4N",
+      "md5": "6d83a8c084731ee73eb5f9398b923183",
+      "sha1": "cb21097d8c430f2716538e365447910d90476f6e",
+      "sha256": "5a9b09c86195b8d8b01ee219d7d9794e2abb6641a2351850c49c309f1fc204a0"
+    },
+    "dob": "1983-07-14 07:29:45",
+    "registered": "2010-09-24 02:10:42",
+    "phone": "(656)-976-4980",
+    "cell": "(065)-247-9303",
+    "id": {
+      "name": "BSN",
+      "value": "04242023"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/19.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/19.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/19.jpg"
+    },
+    "nat": "NL"
+  }],
+  "info": {
+    "seed": "2da87e9305069f1d",
+    "results": 1,
+    "page": 1,
+    "version": "1.1"
+  }
+}

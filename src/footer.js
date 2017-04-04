@@ -1,6 +1,9 @@
 import React from 'react';
-import ServerNamesStores from './Stores/ServerNamesStores'
+import { observer } from 'mobx-react';
+import ServerNamesStores from './Stores/ServerNamesStores';
+import UserProfileStore from './Stores/UserProfileStore';
 
+@observer
 class Footer extends React.Component {
 
   render() {
@@ -13,6 +16,7 @@ class Footer extends React.Component {
 
     return(
       <div>
+        Display Name: {UserProfileStore.UserProfileDisplayName}
         <ul>
           {mobxObjectToArrayofObjects}
         </ul>
