@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { Provider } from 'mobx-react';
 import { toJS } from 'mobx';
 import ServerNamesStores from './Stores/ServerNamesStores';
 import UserProfileStore from './Stores/UserProfileStore';
 
-import Footer from './footer';
-import Header from './header';
+const stores = { ServerNamesStores,  UserProfileStore}
+import Footer from './Components/Footer';
+import Header from './Components/Header';
 import logo from './logo.svg';
 import './App.scss';
 
-@observer
+// @observer
 class App extends Component {
 
   constructor(props) {
     super(props)
-    const { ServerNameUrls, getServerUrls } = ServerNamesStores
-    const { UserProfileDisplayName, UserProfileObject } = UserProfileStore;
+    const { getServerUrls } = ServerNamesStores
+    const { UserProfileObject } = UserProfileStore;
     console.log('@@@ UserProfileDisplayName', UserProfileObject.results[0].name.displayName)
     console.log('getServerUrls using toJS()', toJS(getServerUrls));
     this.state = {
@@ -37,35 +38,37 @@ class App extends Component {
   }
 
   handleKeyDown = (e) => {
-    if (e.keyCode == 13 ) {
+    if (e.keyCode === 13 ) {
       return this.updateDisplayName();
     }
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React + MobX</h2>
-        </div>
-        <div>
-          Display Name: {UserProfileStore.UserProfileDisplayName}
-        </div>
-        <div>
-          <p><input onChange={this.onInputChange} onKeyDown={this.handleKeyDown} value={this.state.displayName}/><button onClick={this.updateDisplayName}>Update display name</button></p>
-          <p><button onClick={this.updateWebUrl}>Update Web Url</button></p>
-        </div>
-        <div>
-          <h1>Header component</h1>
-          <Header/>
-        </div>
-        <div>
-          <h1>Footer component</h1>
-          <Footer/>
-        </div>
+      <Provider {...stores}>
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>Welcome to React + MobX</h2>
+          </div>
+          <div>
+            Display Name(in App.js): {UserProfileStore.UserProfileDisplayName}
+          </div>
+          <div>
+            <p><input onChange={this.onInputChange} onKeyDown={this.handleKeyDown} value={this.state.displayName}/><button onClick={this.updateDisplayName}>Update display name</button></p>
+            <p><button onClick={this.updateWebUrl}>Update Web Url</button></p>
+          </div>
+          <div>
+            <h1>Header component - Passing stores to the child</h1>
+            <Header UserProfileStore={UserProfileStore} ServerNamesStores={ServerNamesStores}/>
+          </div>
+          <div>
+            <h1>Footer component using @inject</h1>
+            <Footer/>
+          </div>
 
-      </div>
+        </div>
+      </Provider>
     );
   }
 }

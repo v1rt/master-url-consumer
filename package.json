@@ -1,6 +1,6 @@
 {
   "name": "master-url-consumer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "master-server-urls": "git+https://git@github.com/v1rt/master-server-urls.git",
